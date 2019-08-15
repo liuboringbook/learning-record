@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期</title>
+    <script src="../resource/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+</div>
+<script>
+    var vm  =new Vue({
+        el:'#app',
+        data:{
+            msg: 'hello'
+        },
+        methods:{
+           show(){
+               console.log('执行了')
+           }
+        },
+        beforeCreate(){
+            console.log(this.msg);
+            this.show();
+        }
+    })
+</script>
+</body>
+</html>
