@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="app">
-
+    <h3 id="h3">{{msg}}</h3>
 </div>
 <script>
     var vm  =new Vue({
@@ -21,8 +21,27 @@
            }
         },
         beforeCreate(){
-            console.log(this.msg);
-            this.show();
+//            console.log(this.msg);//undefined
+//            this.show();// TypeError：this.show is not a function
+        },
+        created(){
+            this.show();// 执行了
+            console.log(this.msg);//hello
+        },
+        beforeMount(){
+          console.log(document.getElementById('h3').innerHTML); //msg
+        },
+        mounted(){
+            console.log(document.getElementById('h3').innerHTML);//hello
+        },
+        beforeUpdate(){
+            //在页面中修改dom树，将h3中的内容修改为bye
+            console.log(document.getElementById('h3').innerHTML);//hello
+            console.log(this.msg);//bye
+        },
+        updated(){
+            console.log(document.getElementById('h3').innerHTML);//bye
+            console.log(msg);//bye
         }
     })
 </script>
