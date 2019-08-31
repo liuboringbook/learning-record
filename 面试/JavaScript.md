@@ -1,4 +1,4 @@
-1. 谈谈对于闭包的理解
+`1. 谈谈对于闭包的理解
 
 闭包就是有权访问另一个函数作用域中的变量的函数，MDN上面：闭包是一种特殊的对象，它由两部分构成：函数，以及创建该函数的环境。环境由闭包创建时再作用域中的任何局部变量组成。
 
@@ -128,6 +128,200 @@ function hello2(){
 </script>
 ```
 
-7. JavaScript模块化 --- commonjs，AMD。CMD，es6 modules
+7. 介绍JS的基本数据类型
+
+Undefined，Null,Boolean,Number,String,ECMAscript2015新增了Symbol(创建后独一无二且不可变的数据类型)
    
-   
+8. 介绍js有哪些内置对象
+
+Object是JavaScript中所有对象的父对象
+
+数据封装类对象：OBject，Array，Boolean，Number和String
+其他对象： Function,Arguments,Math,Date,RegExp,Error
+
+9. JavaScript原型，原型链，有什么特点？
+
+每个独享都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就是去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平说的原型链的该概念。关系：instance.constuctor.prototype = instance.__proto__
+
+原型链：当我们需要一属性的时候，JavaScript引擎会先看当前对象是够有这个属性，如果没有的话，就会查找它的prototype独享时候有这个属性，如此递推下去，一直检索到Object内建对象
+
+10. javaScript有几种类型，你能花一下他们的内存图吗？
+
+栈：基本数据类型(Undefined，Null，Boolean，Number,String)
+堆：引用数据类型(对象，数组和函数)
+
+两种类型的区别是：存储位置不同：
+
+原始数据类型直接存储在栈中的简单数据段，占据空间小，大小固定，属于被频繁使用数据，所以放入栈中存储
+
+引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定。如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体
+
+![内存图](https://camo.githubusercontent.com/d1947e624a0444d1032a85800013df487adc5550/687474703a2f2f7777772e77337363686f6f6c2e636f6d2e636e2f692f63745f6a735f76616c75652e676966)  
+
+11. JavaScript如何实现继承
+
+## 非构造函数继承
+
+- 构造继承
+
+通过apply和call方法，将父对象的构造函数绑定在子对象上
+
+```
+  function Person(name,age){
+    this.name =name;
+    this.age =age;
+  }
+  
+  function Child(name,age,sex){
+    Person.call(this,name,age);
+    this.sex =sex;
+  }
+
+  Person.prototype.sayHi = function(){
+    console.log('hello')
+  }
+
+  var p1 =new Child('小明',18,"男");
+  console.log(p1.name,p1.age,p1.sex)//'小明',18,"男"
+  p1.sayHi();//报错
+```
+
+构造函数继承的方式可以继承到构造函数上的属性和方法，但是原型prototype下的属性和方法无法继承
+
+- 原型继承
+
+通过改变子函数原型指向继而实现继承父函数下的属性和方法
+
+```
+  function Person(name,age){
+    this.name =name;
+    this.age =age;
+  }
+  Person.prototype.sayHi = function(){
+     console.log('hi') 
+  }
+  function Student(score){
+    this.score =score
+  }
+  Student.prototype = new Person('小明',10)
+
+  var stu1 = new Student(100);
+  var stu2 =new Student(80);
+
+  console.log(stu1.score,stu1.name)//100 "小明"
+  console.log(stu2.score,stu2.name)//80 "小明"
+  stu1.sayHi();//hi
+  stu2.sayHi();//hi
+```
+
+原型继承可以继承原型上的方法和属性，但构造函数上的属性和方法无法被修改
+
+- 组合继承
+
+通过原型继承加上构造函数继承，完美实现继承的方案
+
+```
+ function Person(name,age){
+    this.name =name
+    this.age = age
+ }
+
+ Person.prototype.sayHi = function(){
+
+  console.log('hi')
+ }
+
+ function Student(name,age,socre){
+  Person.call(this,name,age);
+  this.score = score
+ }
+ Student.prototype = new Person();
+
+ Student.prototype.eat = function(){
+  console.log('吃东西')
+ }
+ var stu = new Student("小明",20,"100")
+ console.log(stu.name,stu.age,stu.score)//小明 20 100
+ stu.sayHi();//hi
+ stu.eat();//吃东西
+
+```
+
+- 拷贝继承 
+
+拷贝继承就是把一个对象中的属性或者方法直接复制到另一个对象中
+
+```
+  function Animal(){}
+  Animal.prototype.species = "动物"
+
+  function extend2(child,parent){
+    var p = Parent.prototype
+    var c = child.prototype;
+    for(var i in p){
+      c[i]=p[i]
+    }
+    c.uber =p ;
+  }
+  extend2(Cat,Animal);
+  var cat1 = new Cat("大毛","黄色")
+  console.log(cat1.species);//动物
+```
+
+通常构造函数使用组合继承的方式实现继承，是最完美的实现
+
+
+## 非构造函数继承
+
+- 浅拷贝
+
+  浅拷贝就是把相当于把一个对象中的内容复制一份给另一个对象，但是这种事是复制复制不完整的，只能复制对象下的方法和属性，对象下的对象的方法和属性无法复制
+
+  ```
+    var obj1 = {
+      age:10,
+      sex:"男",
+      car:["奔驰","宝马","特斯拉","奥迪"]
+    }
+    var obj2 = {};
+
+    function extend(a,b){
+      for(var key in a){
+        b[key] = a[key];
+      }
+    }
+    extend(obj1,obj2);
+    console.log(obj1);
+    console.log(onj2);
+  ```
+
+
+- 深拷贝 
+
+深拷贝，就是能够实现真正意义上的数组和对象的拷贝，需要递归调用浅拷贝
+
+```
+  function deepCopy(p,c){
+    var c =c ||{};
+    for(var i in p){
+      if(typeof p[i]==='object'){
+        c[i] == (p[i].constructor === Array) ?[]:{}
+        deepCopy(p[i],c[i])
+      }else{
+        c[i] = p[i]
+      }
+    }
+    return c;
+  }
+
+  var Doctor = deep(Chinese)
+  Chinese.birthPlaces = ['北京','上海','香港'];
+
+　　Doctor.birthPlaces.push('厦门');
+alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门
+
+　　alert(Chinese.birthPlaces); //北京, 上海, 香港
+```
+
+
+`
