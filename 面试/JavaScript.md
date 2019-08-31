@@ -127,3 +127,7 @@ function hello2(){
 }
 </script>
 ```
+
+7. JavaScript模块化 --- commonjs，AMD。CMD，es6 modules
+   
+   
