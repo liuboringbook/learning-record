@@ -31,7 +31,7 @@
   
   Vue实例有一个完整生命周期，也就是从开始创建，初始化数据，编译模板，挂载Dom，渲染，更新，卸载等一系列过程，我们称这是Vue的生命周期
 
-![生命周期图示](https://juejin.im/post/5d41eec26fb9a06ae439d29f)  
+![生命周期图示](https://user-gold-cdn.xitu.io/2019/8/1/16c498ca0e16ac26?imageslim)  
  
  异步请求适合在哪个生命周期调用?
 
@@ -76,7 +76,7 @@ Object.defineProperty()的问题主要有是三个：
 
 Proxy还拥有的优势proxy的第二个参数可以有13中拦截方式，这比Object.defineProperty（）要更加丰富
 
-8. Vue的路由实现：hash模式和Hhistory模式
+8. Vue的路由实现：hash模式和history模式
 
 前端路由：就是在保证只有一个HTML页面，且与用户交互时不刷新和跳转页面的同时，为SPA中每个视图展示形式匹配一个特殊的url。在刷新，前进和后退时均通过这个特殊的url来实现
 
@@ -97,7 +97,7 @@ history模式
    history.forward();//前进一页
    history.back();//后退一页
    history.pushState(); //添加新的状态到历史状态栈
-   history.replaceState(); //用心的状态代替当前状态
+   history.replaceState(); //用新的状态代替当前状态
 ```
 
 hash,histroy如何抉择

@@ -160,7 +160,7 @@ Object是JavaScript中所有对象的父对象
 
 11. JavaScript如何实现继承
 
-## 非构造函数继承
+## 构造函数继承
 
 - 构造继承
 
@@ -323,5 +323,218 @@ alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门
 　　alert(Chinese.birthPlaces); //北京, 上海, 香港
 ```
 
+12. commonjs，AMD和CMD
 
-`
+一个模块是能够实现特定功能的文件，有了模块化就可以方便使用别人的代码，想要什么功能就能加载什么模块
+
+- commonjs: 开始于服务器端的模块化，同步定义的模块，每个模块都是一个单独的作用域，模块输出，modules.exports,模块加载require()引入模块
+- AMD: 中文名异步模块定义的意思
+
+requireJS实现了AMD规范，朱啊哟用于解决两个问题
+  1. 多个文件有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器
+  2. 2.加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应的事件越长
+
+语法：requireJS定义了一个函数define，它是全局变量，用来定义模块
+
+requireJS的例子：
+
+```
+//定义模块
+  define(['dependency'],function(){
+    var name = 'Byron';
+    function printName(){
+      console.log(name);
+    }
+    return {
+      printName:printName
+    };
+    });
+    //加载模块
+    require(['myModule'],function(my){
+      my.printName();
+      })
+```
+
+requirejs定义了一个函数define，它是全局变量，用来定义模块
+
+`define(id? dependencies,factory)`
+
+在页面上的使用模块加载函数：
+
+`define([dependencies],factory)`
+
+总结AMD规范：require()函数在架子啊依赖函数的时候是异步加载，这样就蓝旗不会失去响应，它制定的回调函数，只有前面的模块加载成功，才会去执行
+因为网页在加载js的时候会停止渲染，因此我们可以通过异步的方式去加载js。而如果需要依赖默写，也是异步化去依赖，依赖后再执行某些方法
+
+13. 如何实现一个私有变量，用getName可以访问，不能直接访问
+
+- 通过defineProperty来实现
+
+```
+  obj ={
+    name:mark,
+    getName: function(){
+      return this.name
+    }
+  }
+  object.defineProperty(obj,"name"{
+      // 不可枚举不可配置
+      configurable:false,
+      enumerable:false
+    })
+```
+
+- 通过构造函数的创建形式
+```
+  function Product(){
+    var name = 'mark';
+    this.getName = function(){
+      return name
+    }
+  }
+  var obj =new Project(); 
+```
+
+
+
+
+14. ==和===，以及Object.is的区别
+
+- == 主要存在： 强制转换number,null== undefined
+
+```
+  " " == 0; //true 
+  "0" == 0;//true
+  123 == "123"; //true
+  null == undefined //true 
+```
+
+- Object.is() 其被称为同值相等，是比较运算符的一份子
+- 在检查两个操作是否相等时，用到了以下规则
+
+规则1： 操作值均未定义(undefined)
+
+```
+  let a
+  let b
+  object.is(a,b);//true
+```
+
+规则2：操作数都是相同长度和顺序的字符串
+
+```
+  Object.is('Comparison Operators','Comparison Operators'); //true
+  Object.is('Comparison Operators','Comparison operators');// false ，严格区分大小写
+```
+
+规则3：操作值均未null
+
+```
+ Object.is(null,null);//true
+ Object.is('null',null);//false
+```
+
+规则4： 操作值为对象且引用地址相同
+
+```
+ let a = {"name":"Arwa"}
+ let b = a
+ Object.is(a,b);//true
+ Object.is({"name":"Arwa"},{"name":"Arwa"});//fasle
+ Object.is(window,window); //true .均引用了同一个全局变量
+```
+
+规则5：操作值均未非0和非NaN数
+
+`Object.is(1,1) //true`
+
+规则6：操作值都是+0或-0
+
+```
+Object.is(0,0);//true
+OBject.is(0.-0)//false,这点就不同于==和===
+```
+
+规则7： 操作数为NaN
+
+```
+Object.is(NaN,NaN);//true,这点也和== 和=== 不同
+Object.is(NaN,0/0);//true
+```
+当选择比较特殊的字符的时候，如NaN，0，+0，-0推荐使用Object.is()
+
+
+15. 解释一下防抖和节流
+
+## 防抖
+
+防抖技术即是可以把多个顺序地调用合并一次，也就是在一定时间内，规定时间触发的次数。主要是针对高频度触发事件问题(例如页面scroll，监听用户输入等)
+
+
+```
+ //简单的防抖函数
+ function debounce(func,wait,immediate){
+  //定时器变量
+  var timeout;
+  return function(){
+    //每次触发scroll handler 时先清除定时器
+    clearTimeout(timeout);
+    //指定xx ms 后触发真正想进行的操作handler
+    timeout = setimeout(func,wait)
+  };
+ };
+ //实际想绑定在scroll事件上的handler
+function realfunc(){
+  console.log("success")
+}
+//采用防抖技术
+window.addEventListener('scroll',debounce(realFunc,500));
+//没采用防抖动
+window.addEventListener('scroll',realFunc)
+```
+
+大概的功能就是如果500ms内没有连续触发scroll事件，那么才会真正想在scroll事件中触发的函数
+
+## 节流
+
+防抖函数确实不错，但是也存在问题，譬如图片的懒加载，我希望在下滑过程中图片不断的被加载出来，而不是只有当我停止下滑时候，图片才被加载出来，又或者下滑时候的数据的ajax请求加载也是同理。
+
+这个事就我们希望即使页面不断被滚动，但是滚动handler也可以以一定频率被触发，这列场景，就需要用到另一种技巧，成为节流函数
+
+节流函数，只允许一个函数在X秒内执行一次
+
+与防抖相比，节流函数最主要的不同在于它保证在X毫秒内至少执行一次，我们希望触发的事件handler
+
+```
+  //简单的节流函数
+  function throttler(func,wait,mustRun){
+    var timeout,
+    startTime =new Date();
+
+    return function(){
+      var context = this.
+      args = arguments,
+      curTime  =new Date();
+
+      clearTimeout(timeout);
+      //如果达到了规定的触发时间间隔，触发handler
+      if(curtime- startTime >=mustRun){
+        func.apply(context,args);
+        startTime = curTime;
+        //没有达到触发间隔，重新设定定时器
+      }else{
+        timeout = setTimeout(func,wait);
+      }
+    };
+  };
+  //实际想绑定在scroll事件上的handler
+  function realFunc(){
+    console.log('success');
+  }
+  //采用了节流函数
+  window.addEventListen('scroll',throttle(realFunc,500,1000)); 
+```
+
+大概功能就是如果在一段时间内scroll触发的时间间隔短于500ms。那么能保证事件我们希望调用的handle至少在1000ms内触发一次。
+
+
