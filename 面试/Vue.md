@@ -259,7 +259,71 @@ Vue的父组件和子组件生命周期钩子函数执行顺序可以归类为�
 - ssr不支持beforeMount,mounted钩子函数，所以在creayed中有助于一致性
 
 
+## 15. 父组件可以监听到子组件的生命周期吗？
 
+比如有父组件Parent和子组件Child，如果父组件监听到子组件挂载mounted就做一些逻辑处理，可以通过以下写法实现：
+
+```
+  //Parent.vue
+  <Child @mounted="doSometing">
+  //Child.vue
+  mouned(){
+    this.$emit("mounted")
+  }
+```
+
+以上需要手动通过$emit触发父组件的事件，更简单的方式可以在父组件引用子组件时通过@hook来监听即可，如下所示：
+
+```
+//Parent.vue
+<Child @hook:mouned="doSometing"></Child>
+
+doSomething(){
+  console.log('父组件监听到mounted钩子函数...')
+}
+
+//Child.vue
+mounted(){
+  console.log('子组件触发mounted钩子函数...')
+}
+
+//以上触发顺序为：
+//子组件触发mounted钩子函数...
+//父组件监听mountd钩子函数...
+```
+
+当然，@hook方法不仅仅是可以监听mounted,其他的生命周期事件，例如：created，updated等都可以监听
+
+## 16. 谈谈你对keep-alive的了解
+
+Keep-alive是Vue内置的一个组件，可以使被包含的组件保留状态，避免重新渲染，其有以下特性：
+
+- 一般结合路由和动态组件一起使用，用于缓存组件；
+- 提供include和exclude属性，两者都直接字符串或正则表达式，include表示1只有名称匹配的组件会被缓存，exclude表示任何名称匹配的组件都不会被缓存，其中exclude的优先级比include高
+- 对应两个钩子函数activated和deactivated，组件被激时，触发钩子函数activated，当组件被移除时，触发钩子函数deactivated
+
+## 17. 组件中data为什么是一个函数？
+
+```
+//data
+
+data(){
+  return {
+    message:'子组件',
+    childName: this.name
+  }
+}
+
+//new Vue
+new Vue({
+  el:'#app',
+  router,
+  template；'<App/>',
+  components:{App}
+})
+```
+
+因为组件是用来复用的，且JS里对象是引用关系，如果组件中的data是一个对象，那么这样作用域没有隔离，子组件中的data属性会相互影响，如果组件中data选项时一个函数，那么每个实例可以维护一份被返回对象的独立的拷贝，组件实例之间的data属性不会互相影响；而new Vue的实例不会被复用，因此不存在引用对象的问题
 
 
 
