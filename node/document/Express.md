@@ -86,3 +86,116 @@ app.use('/admin',(req,res,next)=>{
 
 在程序执行的过程中，不可避免的会出现一些无法预料的错误，比如文件读取失败，数据库连接失败，错误处理中间件是一个集中处理错误的地方。
 
+```javascript
+app.use((err,req,res,next)=>{
+    res.status(500).send('服务器端错误')
+})
+```
+
+## 捕获错误
+
+在node.js中，异步API的错误信息都是通过回调函数获取的，支持Promise对象的异步API发生错误可以通过catch方法捕获。
+
+try catch可以捕获异步函数以及同步代码在执行过程中发生的错误，但是不能捕获其他类型的API发生的错误。
+
+```javascript
+app.get("/",async(req,res,next)=>{
+    try{
+        await User.find({name:"张三"})
+    }catch(ex){
+        next(ex)
+    }
+});
+```
+
+## 构建模块化路由
+
+```javascript
+const express = require('express');
+//创建路由对象
+const home = express.Router();
+//将路由和请求路径进行匹配
+app.use('/home',home);
+//在home路由下继续创建路由
+home.get('/index',()=>{
+    // /home/index
+    res.send('欢迎来到博客展示页面')；
+})
+app.use('/home',home)
+```
+
+![1581319716174](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1581319716174.png)
+
+### GET参数的获取
+
+Express框架中使用req.query即可获取GET参数，框架内部会将GET参数转换为对象并返回
+
+```javascript
+//接收地址栏中问好后面的参数
+//例如：http://localhost:3000/?name=zhangsan&age=30
+app.get('/',(req,res)=>{
+    console.log(req.query); //{"name":"zhangsan","age":"30"}
+});
+```
+
+## POST参数的获取
+
+Express中接收post请求参数需要借助第三方包 body-parser
+
+```javascript
+//引入body-parser模块
+const bodyParser =require('body-parser');
+//配置body-parser模块
+app.use(bodyParser.urlencoded({extended:false}));
+
+//接收请求
+app.post('/add',(req,res)=>{
+    //接收请求参数
+    console.log(req.body)
+})
+```
+
+extended：false  方法内部使用querystring模块处理请求参数的格式
+
+extended：true 方法内部使用第三方模块qs处理请求参数的格式
+
+## Expres路由参数
+
+```javascript
+app.get('/find/:id',(req,res)=>{
+    console.log(req.params);//{id:123}
+});
+
+```
+
+## 静态资源的处理
+
+通过Express内置的express.static可以方便地托管静态文件，例如img,css,javascript 文件等
+
+```javascript
+app.use(express.static('public'));
+```
+
+现在，public目录下main的文件就可以访问了。
+
++ http://localhost:3000/images/kitten.jpg
++ http://localhost:3000/css/style.css
++ http://localhost:3000/js/app.js
++ http://localhost:3000/images/bg.png
+
+## express-art-template 模板引擎
+
+app.locals对象
+
+将变量设置到app.locals对象下面，这个数据在所有的模板中都可以获取到
+
+```javascript
+app.locals.users=[{
+    nameL:'张三',
+    age:20
+},{
+    name:'李四'，
+    age:20
+}]
+```
+
