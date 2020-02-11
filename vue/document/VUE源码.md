@@ -1,0 +1,42 @@
+# VUE源码
+
+## MVVM响应式原理
+
+### 几种实现双向绑定的做法
+
+目前主流的MVC框架都实现了单向数据绑定，而我所理解的双向数据绑定无非就是在单向绑定的基础上给可输入元素(input,textare等)添加了change事件，来动态修改model和view
+
+实现数据绑定的做法有大致如下几种：
+
++ 发布者-订阅者模式(backbone.js)
++ 脏值检查(angular.js)
++ 数据劫持(vue.js)
+
+`发布者-订阅者模式`:一般通过sub，pub的方式来实现数据和视图的绑定监听，更新数据方式通常的做法`vm.set('property',value)`。
+
+但是这种方式现在毕竟太low了，我们更希望通过 `vm.property=value`这种方式更新数据，同时自动更新视图
+
+`脏值检查`：angular.js是通过脏值检查来对比数据是够有变更，来决定是否更新视图，最简单的方式就是通过`setInterval()`定时轮询检查数据变动，angular只是在指定的事件触发时进入脏值检查，大致如下：
+
++ DOM事件，譬如用户输入文本，点击按钮等(bg-click)
++ XHR响应事件($http)
++ 浏览器Location变更事件($localtion)
++ Timer事件($timeout,$interval)
++ 执行$digest()和$apply()
+
+`数据劫持`: vue.js则是采用数据劫持结合发布者-订阅者模式的方式。通过`Object.defineProperty()`来劫持各个属性的`setter`,`getter`,在数据变动时发布消息给订阅者，触发相应的监听回调。
+
+![1581401968070](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1581401968070.png)
+
+## 实现一个指令解析器Complie
+
+
+
+ 
+
+## 实现一个数据监听器Observer
+
+## 实现一个watcher去更新视图
+
+## 实现一个proxy
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{person.name}}---{{person.age}}</h2>
+    <h3>{{person.fav}}</h3>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <h3>{{msg}}</h3>
+    <div v-text="msg"></div>
+    <div v-text="person.fav"></div>
+    <input type="text" v-model="msg">
+    <button type="button" v-model="msg" value="按钮"></button>
+</div>
+<!--<script src="../resource/vue.js"></script>-->
+<script src="../resource/Mvue.js"></script>
+<script>
+    let vm =new MVue({
+        el:'#app',
+        data:{
+            person:{
+                name:'小马哥',
+                age:18,
+                fav:'姑娘'
+            },
+            msg:'学习MVVM实现原理'
+        }
+    });
+</script>
+</body>
+</html>
