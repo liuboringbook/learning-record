@@ -9,6 +9,9 @@ const compileUtil ={
         this.updater.textUpdater(node,value)
     },
     html(node,expr,vm){
+        if(expr.indexOf('{{')!==-1){
+
+        }
         const value = this.getVal(expr,vm);
         this.updater.htmlUpdater(node,value);
     },
@@ -55,9 +58,12 @@ class Compile{
                 //编译元素节点
                 this.compileElement(child);
             }else{
+                 console.log(child)
+                //文本节点
+                //编译文本节点
                 this.compileText(child);
             }
-            if(child.chidNode && child.childNodes.length){
+            if(child.childNodes && child.childNodes.length){
                 this.compile(child);
             }
         })
@@ -83,12 +89,10 @@ class Compile{
     //编译文本节点
     compileText(node){
        //{{}} v-text
-        console.log(node)
         const content =node.textContent;
-        console.log(content);
 
         if(/\{\{(.+?)\}\}/.test(content)){
-            console.log(content)
+            // compileUtil['text'](node,content,this.vm)
         }
     }
     //判断是否为追加的指令
