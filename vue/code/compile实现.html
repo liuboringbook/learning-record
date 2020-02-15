@@ -16,10 +16,12 @@
     <h3>{{msg}}</h3>
     <div v-text="msg"></div>
     <div v-text="person.fav"></div>
+    <div v-html="person.fav"></div>
     <input type="text" v-model="msg">
-    <button type="button" v-model="msg" value="按钮"></button>
+    <button type="button" v-model="msg" value="按钮" v-on:click="handleClick">按钮</button>
 </div>
 <!--<script src="../resource/vue.js"></script>-->
+<script src="../resource/Observer.js"></script>
 <script src="../resource/Mvue.js"></script>
 <script>
     let vm =new MVue({
@@ -31,6 +33,12 @@
                 fav:'姑娘'
             },
             msg:'学习MVVM实现原理'
+        },
+        methods:{
+            handleClick(){
+                this.person.name ='张三'
+//                console.log(this.$data.person.name ="张三");
+            }
         }
     });
 </script>

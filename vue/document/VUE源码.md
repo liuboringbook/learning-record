@@ -28,11 +28,7 @@
 
 ![1581401968070](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1581401968070.png)
 
-## 实现一个指令解析器Complie
-
-
-
- 
+## 实现一个指令解析器Complie 
 
 ## 实现一个数据监听器Observer
 
@@ -40,3 +36,8 @@
 
 ## 实现一个proxy
 
+## 面试题
+
+阐述一下你所理解的MVVM响应式原理
+
+Vue是采用数据劫持配合发布者--订阅者模式的方式通过`Object.defineProperty()`来劫持各个属性的setter和getter在数据变动时，发布消息给依赖收集器，去通知观察者，做出对应的回调函数，去更新视图
