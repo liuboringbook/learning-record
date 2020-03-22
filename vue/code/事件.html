@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../resource/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{num}}</p>
+    <button @click="increment1">+1</button>
+    <button @click="increment2(2,$event)">+2</button>
+</div>
+<script>
+    var vm =new Vue({
+        el:"#app",
+        data(){
+            return{
+                num: 0
+            }
+        },
+        methods:{
+            increment1(event){
+                console.log('event',event,event.__proto__.constructor); //原生事件 MouseEvent
+                console.log(event.target); //事件监听的节点
+                console.log(event.currentTarget);  //事件触发的节点
+                this.num++
+
+                //1. event是原生的
+                //2.事件被挂载到当前元素
+            },
+            increment2(many,event){
+                console.log('event',event,event.__proto__.constructor);
+                console.log(event.target);
+                console.log(event.currentTarget);
+                this.num =this.num+ many
+            }
+        }
+    })
+</script>
+</body>
+</html>
