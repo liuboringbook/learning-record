@@ -123,3 +123,39 @@
 
 
 
+#### 组件的生命周期  
+
+![Vue 实例生命周期](https://cn.vuejs.org/images/lifecycle.png)
+
++ 挂载阶段
+
+​     beforeCreate
+
+​     created
+
+​     beforeMount
+
+​     mounted
+
++ 更新阶段
+
+​     beforeUpdate
+
+​    updated 
+
++ 销毁阶段
+
+​    beforeDestory
+
+​    destoryed
+
+#### 生命周期(父子组件)
+
+![1584879365185](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1584879365185.png)
+
+![1584879376281](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1584879376281.png)
+
+先创建父组件的实例模型，然后创建子组件模型。渲染页面先渲染子组件页面，当子组件页面渲染完毕之后，渲染父组件页面
+
+在beforeDestory中及时销毁自定义事件，否则可能造成内存泄露
+
