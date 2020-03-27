@@ -295,7 +295,7 @@ JS如何设置盒模型对应的宽和高
 dom.style.width/height //不会获取外嵌样式宽和高
 dom.currentStyle.width/height //只支持IE
 widnow.getComputedStyle(dom).width/height //支持IE，火狐，chrome
-dom.getBoundingClientRect().width/height
+dom.getBoundingClientRect().width/height 
 ```
 
 示例图(根据盒模型解释边距重叠)
