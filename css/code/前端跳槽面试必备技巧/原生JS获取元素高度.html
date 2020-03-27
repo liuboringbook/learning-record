@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原生JS获取元素高度</title>
+    <style>
+        #box{
+            width:300px;
+            height:300px;
+            border:10px solid red;
+            padding:20px;
+            margin:30px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+
+</div>
+<script>
+    var box = document.getElementById("box");
+    console.log(box.style.width); //空
+    console.log(box.currentStyle.width);//在chrome下报错
+    console.log(window.getComputedStyle(box).width); //300px
+    console.log(box.getBoundingClientRect().width)//360px
+</script>
+</body>
+</html>

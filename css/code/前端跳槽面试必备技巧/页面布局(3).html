@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面布局(3) flex</title>
+    <style>
+        .layout div{
+            height:200px;
+        }
+        .layout .left-center-right{
+            display: flex;
+        }
+        .layout .left-center-right .left{
+            width:300px;
+            background: red;
+        }
+        .layout .left-center-right .center{
+            flex:1;
+            background: blue;
+        }
+        .layout .left-center-right .right{
+            width:300px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<section class="layout flex">
+    <article class="left-center-right">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </article>
+</section>
+</body>
+</html>

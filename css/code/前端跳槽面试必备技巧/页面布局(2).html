@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面布局(2) position</title>
+    <style>
+          .layout div{
+              height:200px;
+          }
+        .layout .left-center-right{
+            position: relative;
+        }
+        .layout .left-center-right .left{
+            position: absolute;
+            top:0;
+            left:0;
+            width:300px;
+            background: red;
+        }
+          .layout .left-center-right .center{
+              position: absolute;
+              top:0;
+              right:300px;
+              left:300px;
+              background: blue;
+          }
+          .layout .left-center-right .right{
+              position: absolute;
+              right:0;
+              top:0;
+              width:300px;
+              background: yellow;
+          }
+    </style>
+</head>
+<body>
+<section class="layout position">
+    <article class="left-center-right">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </article>
+</section>
+</body>
+</html>

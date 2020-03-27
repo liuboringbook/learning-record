@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面布局(1)float</title>
+    <style>
+        .layout div{
+            min-height:300px;
+        }
+        .layout .left-right-center .left{
+            float: left;
+            width:300px;
+            background: red;
+        }
+        .layout .left-right-center .right{
+            float: right;
+            width:300px;
+            background: yellow;
+        }
+        .layout .left-right-center .center{
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<section class="layout float">
+    <article class="left-right-center">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="center"></div>
+    </article>
+</section>
+</body>
+</html>

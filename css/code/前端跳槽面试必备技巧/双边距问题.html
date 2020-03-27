@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双边距问题</title>
+    <style>
+        html *{
+            margin:0;
+            padding:0;
+        }
+        #sec{
+            background: #f00;
+        }
+        .child{
+            height:100px;
+            margin-top:10px;
+            background: yellow;
+        }
+
+        #bro1{
+            height:200px;
+            margin-bottom:20px;
+            background: blue;
+            
+        }
+        #bro2{
+            height:200px;
+            margin-top:10px;
+            background: gray;
+        }
+
+
+        .empty{
+            margin-top:20px;
+            margin-bottom:10px;
+        }
+    </style>
+</head>
+<body>
+<!--父子双边距  此时父元素sec的高度仍为100px 不会加上子元素的margin-top-->
+
+<section id="sec">
+    <article class="child"></article>
+</section>
+
+<br>
+<br>
+<br>
+<!--兄弟双边距  此时兄弟节点之间的margin为两者margin的最大值 即20px-->
+<section id="bro1"></section>
+<section id="bro2"></section>
+
+<br>
+<br>
+<br>
+<!--空元素   此时margin取margin-top和margin-bottom的最大值 即20px-->
+<div class="empty"></div>
+</body>
+</html>
