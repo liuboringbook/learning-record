@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM事件级别</title>
+</head>
+<body>
+<p>这是一个文本</p>
+<button id="btn">按钮</button>
+<script>
+    //0级
+    var btn =document.getElementById('btn');
+    btn.onclick = function(){
+        alert(this.innerHTML)
+    };
+    //2级
+    btn.addEventListener('click',test,false);
+    function test(e){
+        e =e || window.event;
+        alert(e.target||e.srcElement.innerHTML);
+        btn.removeEventListener("click",test)
+    }
+</script>
+</body>
+</html>

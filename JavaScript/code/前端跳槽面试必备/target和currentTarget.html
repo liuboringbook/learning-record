@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>target和currentTarget</title>
+    <style>
+        #a{
+            width:400px;
+            height:400px;
+            background: yellow;
+        }
+        #b{
+            width:200px;
+            height:200px;
+            background: green;
+        }
+        #c{
+            width:100px;
+            height:100px;
+            background: gray;
+        }
+        #d{
+            width:50px;
+            height:50px;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+<div id="a">
+    <div id="b">
+        <div id="c">
+            <div id="d">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('a').addEventListener('click',function(e){
+        console.log('target:'+e.target.id+'&currentTarget:'+e.currentTarget.id)
+    })
+    document.getElementById('b').addEventListener('click',function(e){
+        console.log('target:'+e.target.id+'&currentTarget:'+e.currentTarget.id)
+    })
+    document.getElementById('c').addEventListener('click',function(e){
+        console.log('target:'+e.target.id+'&currentTarget:'+e.currentTarget.id)
+    })
+    document.getElementById('d').addEventListener('click',function(e){
+        console.log('target:'+e.target.id+'&currentTarget:'+e.currentTarget.id)
+    })
+    //当点击最小的d模块时
+    /*
+    * target:d & currentTarget:d
+    * target:d & currentTarget:c
+    * target:d & currentTarget:b
+    * target:d & currentTarget:a
+    * */
+</script>
+</body>
+</html>

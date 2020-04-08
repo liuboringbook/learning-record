@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click me</button>
+<div id="box">
+    <button id="btn2">propagation</button>
+</div>
+<script>
+    var btn2 =document.querySelector('#btn2');
+    var btn =document.querySelector('#btn');
+    var box = document.querySelector('#box');
+    btn.addEventListener('click',function(event){
+        console.log('btn click 1');
+        event.stopImmediatePropagation()
+    })
+    btn.addEventListener('click',function(){
+        console.log('btn click')
+    })
+    document.body.addEventListener('click',function(){
+        console.log('body click')
+    })
+    /*
+    * event.stopImmediatePropagation()不仅会阻止事件冒泡，而且会阻止同一个节点上面的事件触发
+    * btn click 1
+    * */
+
+
+    btn2.addEventListener('click',function(event){
+        console.log('btn2 click 1');
+        event.stopPropagation()
+    })
+    btn2.addEventListener('click',function(){
+        console.log('btn2 click')
+    })
+    box.addEventListener('click',function(){
+        console.log('box click')
+    })
+    /*
+    * event.stopPropagation()只会阻止事件冒泡
+    *
+    * btn2 click 1
+    * btn2 click
+    * */
+
+
+</script>
+</body>
+</html>

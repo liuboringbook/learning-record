@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止默认事件</title>
+</head>
+<body>
+<input type="text" id="tempInp">
+<script>
+    var tempInp = document.getElementById('tempInp');
+    tempInp.onkeydown =function(ev){
+        ev=ev||window.event;
+        var val =this.value.trim();//trim去除字符串首位空格
+        var len =val.length;
+        console.log(val,len)
+        if(len>=6){
+            this.value =val.substr(0,6);
+            //阻止默认行为去除特殊按键
+            var code =ev.which ||ev.keyCode;
+            if(!/^(46|8|37|38|39|40)$/.test(code)){
+                ev.preventDefault();
+            }
+        }
+    }
+</script>
+</body>
+</html>

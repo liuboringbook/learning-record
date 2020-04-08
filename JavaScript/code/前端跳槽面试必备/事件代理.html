@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件代理</title>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+<script>
+    var list = document.getElementById('list');
+
+    list.addEventListener('click',function(e){
+        var event =e ||window.event;
+        var target =event.target ||event.scrElement;
+        //判断是否匹配目标元素
+        console.log(target.nodeName)
+        console.log(target.nodeName.toLocaleLowerCase);
+        if(target.nodeName.toLocaleLowerCase() === 'li'){
+            console.log('this.content is',target.innerHTML)
+        }
+    },false)
+</script>
+</html>
