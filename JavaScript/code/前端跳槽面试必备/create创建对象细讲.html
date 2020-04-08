@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create创建对象细讲</title>
+</head>
+<body>
+<script>
+    var bb =Object.create(null,{
+        a:{
+            value:2,
+            writable:true,
+            configurable:true
+        }
+    });
+    console.log(bb);{a: 2}
+    console.log(bb.__proto__);//undefined
+    console.log(bb.__proto__ === Object.prototype);//false
+    console.log(bb instanceof Object);//true
+
+
+    var cc =Object.create({b:1},{
+        a:{
+            value:3,
+            writable:true,
+            configurable:true
+        }
+    })
+    console.log(cc);//{a: 3}
+    console.log(cc.hasOwnProperty('a'),cc.hasOwnProperty('b'));//true false
+    console.log(cc.__proto__);//{b:1}
+    console.log(cc.__proto__ === Object.prototype);//false
+    console.log(cc instanceof Object)//true
+
+
+
+
+    /*
+    * 自己实现一个Object.create()
+    * */
+
+    Object.myCreate =function(proto,properties){
+        function F(){
+
+        }
+        if(properties){
+            Object.defineProperties(F,properties); //直接在一个对象上定义新的属性或修改现有属性并返回该对象
+        }
+        return new F();
+    };
+    var hh =Object.myCreate({a:11},{mm:{value:10}});
+    console.log(hh);
+</script>
+</body>
+</html>
