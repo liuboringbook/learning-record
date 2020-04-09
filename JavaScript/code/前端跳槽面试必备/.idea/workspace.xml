@@ -78,8 +78,8 @@
       <file leaf-file-name="create创建对象细讲.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create创建对象细讲.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="46" column="80" lean-forward="false" selection-start-line="46" selection-start-column="80" selection-end-line="46" selection-end-column="80" />
+            <state relative-caret-position="154">
+              <caret line="39" column="8" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -121,10 +121,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="540" />
-    <option name="y" value="297" />
+    <option name="x" value="307" />
+    <option name="y" value="86" />
     <option name="width" value="1215" />
-    <option name="height" value="612" />
+    <option name="height" value="827" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -242,15 +242,15 @@
       <option name="presentableId" value="Default" />
       <updated>1586312577348</updated>
       <workItem from="1586312578598" duration="5511000" />
-      <workItem from="1586323901720" duration="7029000" />
+      <workItem from="1586323901720" duration="7631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12540000" />
+    <option name="totallyTimeSpent" value="13142000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="540" y="297" width="1215" height="612" extended-state="0" />
+    <frame x="307" y="86" width="1215" height="827" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24937448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -388,8 +388,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/create创建对象细讲.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="46" column="80" lean-forward="false" selection-start-line="46" selection-start-column="80" selection-end-line="46" selection-end-column="80" />
+        <state relative-caret-position="154">
+          <caret line="39" column="8" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
           <folding />
         </state>
       </provider>
