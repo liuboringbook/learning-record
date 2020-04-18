@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9477efbb-2d92-4cec-8a18-14dc206c3665" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/通信和安全/code/跨域/CORS/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/通信和安全/code/跨域/CORS/server.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/通信和安全/code/跨域/hash/client/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/通信和安全/code/跨域/hash/client/proxy.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/通信和安全/code/跨域/hash/server/data.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/通信和安全/code/跨域/jsonp/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/通信和安全/code/跨域/jsonp/server.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/通信和安全/code/跨域/possmessage/client/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/通信和安全/code/跨域/possmessage/server/data.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/JavaScript/document/网络通信和安全.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/JavaScript/resource/image.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/JavaScript/resource/image2.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="9477efbb-2d92-4cec-8a18-14dc206c3665" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -29,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/通信和安全/code/跨域/possmessage/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+            <state relative-caret-position="264">
+              <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="36" />
               <folding>
                 <element signature="n#style#0;n#iframe#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -41,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="data.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/通信和安全/code/跨域/possmessage/server/data.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+            <state relative-caret-position="216">
+              <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -102,8 +88,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1051" />
-    <option name="y" value="111" />
+    <option name="x" value="435" />
+    <option name="y" value="177" />
     <option name="width" value="1146" />
     <option name="height" value="775" />
   </component>
@@ -238,7 +224,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/演示代码/blog-master" />
+    <property name="last_opened_file_path" value="E:/BaiduYunDownload" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
@@ -357,15 +343,15 @@
       <workItem from="1586094424358" duration="725000" />
       <workItem from="1586309175290" duration="782000" />
       <workItem from="1587090811621" duration="4229000" />
-      <workItem from="1587095332678" duration="1941000" />
+      <workItem from="1587095332678" duration="3444000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45577000" />
+    <option name="totallyTimeSpent" value="47080000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1051" y="111" width="1146" height="775" extended-state="0" />
+    <frame x="435" y="177" width="1146" height="775" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24867256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -751,21 +737,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/通信和安全/code/跨域/possmessage/client/index.html">
+    <entry file="file://$PROJECT_DIR$/通信和安全/code/跨域/possmessage/server/data.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="216">
+          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/通信和安全/code/跨域/possmessage/server/data.html">
+    <entry file="file://$PROJECT_DIR$/通信和安全/code/跨域/possmessage/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-          <folding />
+        <state relative-caret-position="264">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
