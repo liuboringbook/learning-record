@@ -41,7 +41,7 @@
 import slotDemo from './slotDemo.vue'  //常用的加载模式
 export default{
     components:{
-        FormDemo:()=>import('./fromDemo') //组件按需加载
+        FormDemo:()=>import('./formDemo') //组件按需加载
     }
 }
 ```
