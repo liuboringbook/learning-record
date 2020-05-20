@@ -216,9 +216,99 @@ methods:{
 }
 ```
 
+触发actions异步任务是携带参数：
 
+```javascript
+//定义Action
+const store =new Vuex.Store({
+    mutations:{
+        addN(state,step){
+            state.count+=step
+        }
+    },
+    actions:{
+        addNAsync(context,step){
+            setTimeout(()=>{
+                context.commit('addN',step)
+            },1000)
+        }
+    }
+})
+```
+
+```javascript
+//触发Action
+methods:{
+    handle(){
+        //在调用dispatch函数
+        //触发actions时携带参数
+        this.$store.dispatch('addNAsync',5)
+    }
+}
+```
+
+`this.$store.dispatch()`是触发actions的第一种方式，触发actions的第二种方式
+
+```javascript
+//1.从vuex中按需导入mapActions函数
+import {mapActions} from 'vuex'
+```
+
+通过刚才的mapActions函数，将需要的actions函数，映射为当前组件的methods方法
+
+```javascript
+//2.将指定的actions函数，映射为当前组件的methods函数
+methods:{
+    ...mapActions(['addAsync','addNAsync'])
+}
+```
 
 + Getter
 
+Getter用于对store中的数据进行加工处理形成新的数据
+
+1. Getter可以对Store中已有的数据加工处理之后形成的属性，类似Vue的计算属性
+2. Store中数据发生变化，Getter的数据也会跟着变化
+
+```javascript
+//定义Getter
+const store = new Vue.Store({
+    state:{
+        count:0
+    },
+    getters:{
+        showNum:state =>{
+            return '当前最新的数量是【‘+ state.count+’】'
+        }
+    }  
+})
+```
+
+使用getters的第一种方式：
+
+```javascript
+this.$store.getters.名称
+```
+
+使用getters的第二种方式
+
+```javascript
+import {mapGetters} from 'vuex'
+computed:{
+    ...mapGetters(['showNum'])
+}
+```
+
 ### 4，基于Vuex的案例
+
+1. 初始化项目
+   + 通过vue cli命令打开可视化面板，创建新项目vuex-demo
+   + 安装vuex依赖包 npm install vuex axios ant-design-vue -S
+   + 实现Todos基本布局(基于已有样式模板)
+
+
+
+
+
+
 
