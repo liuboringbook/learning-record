@@ -319,3 +319,60 @@ app.use(async function(ctx){
 })
 ```
 
+## 6，cookie
+
+cookie是存储于访问者的计算机中的变量。可以让我们用同一个浏览器访问同一个域名的时候共享数据
+
+1. koa中设置cookie值
+
+```javascript
+ctx.cookie.set(name,value,[options])
+```
+
+通过options设置cookie name的value
+
+![1590052885224](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590052885224.png)
+
+2. koa中获取cookie的值
+
+```javascript
+ctx.cookie.get('name')
+```
+
+## 7, session
+
+ Session是另一种记录客户状态的机制，不同的是Cookie保存在客户端浏览器中，而session保存在服务器上
+
+工作流程：
+
+当浏览器访问服务器并发送第一次请求时，服务器端会创建一个session对象，生成一个类似于key，value的键值对，然后将key(cookie)返回到浏览器(客户)端，浏览器下次再访问时，携带key(cookie)，找到对应的session(value).客户的信息都保存在session中
+
+1. 安装koa-session
+
+```javascript
+npm install kao-session --save
+```
+
+2. 引入koa-session
+
+```javascript
+const session = require('koa-session');
+```
+
+3. 设置官方文档提供的中间件
+
+```javascript
+app.key =['some secret hurr'];//保存的签名，默认即可
+const CONFIG ={
+    key:'koa:sess', //cookie key（default is koa:sess）
+    maxAge:86400000, //cookie的过期时间 maxAge is ms(defalut is 1 days)
+    overwrite: true, //是否可以overwrite (默认是default true)
+    httpOnly: true, //cookie是否只有服务器端可以访问 httpOnly or not(default true)
+    signed：true，// 签名默认true
+    rolling:false, //在每次请求是强行设置cookie，这将重置cookie过期时间(默认:false),
+    renew:false  //当session快要过期的时候重置过期时间(默认为false)
+}
+```
+
+## mongodb
+
