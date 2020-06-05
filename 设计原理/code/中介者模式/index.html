@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * 中介者模式：通过一个中介，其他所有相关对象都通过中介者来通信，而不是相互引用，当其中一个对象发生改变时，只需要通知中介者对象即可。通过中介者模式可以
+    * 解除对象与对象之间的紧解耦
+    *
+    * 例如：现实生活中，航线上的飞机只需要和机场的塔台通信就能确定航线和飞机状态，而不需要和飞机通信，同时塔台作为中介者。知道每架飞机的飞机状态
+    * 所以安排飞机的起降和航线安排
+    *
+    * 中介者模式使用的场景：例如购物车需求，存在商品选择列表，颜色选择表单，购物车表单等等，都会触发change事件那么可以通过中介者来转发处理这些事物，实现
+    * 各个事件间的解耦，仅仅维护中介者对象即可
+    *
+    * redux，vuex都属于中介者模式的实际应用，我们把共享的数据，筹集成一个单独的store，每个都通过store这个中介来操作对象
+    *
+    * 中介者模式：对象和对象借助第三方中介者进行通信，目的是为了减少耦合
+    *
+    * 场景demo 一场测试结束后，公布结果：告知解答出题目的人挑战成功，否则挑战失败
+    * */
+    const player = function(name){
+        this.name =name
+        playerMiddler.add(name)
+    }
+    player.prototype.win =function(){
+        playerMiddler.win(this.name)
+    }
+    player.prototype.lose = function(){
+        playerMiddler.lose(this.name)
+    }
+    const playerMiddler =(function(){
+        const players =[]
+        const winArr =[]
+        const loseArr =[]
+        return {
+            add:function(name){
+                players.push(name)
+            },
+            win:function(name){
+                winArr.push(name)
+                if(winArr.length+ loseArr.length===players.length){
+                    this.show()
+                }
+            },
+            lose:function(name){
+                loseArr.push(name)
+                if(winArr.length+loseArr.length===players.length){
+                    this.show()
+                }
+            },
+            show:function(){
+                for(let winner of winArr){
+                    console.log(winner+'挑战成功;')
+                }
+                for(let loser of loseArr){
+                    console.log(loser+ '挑战失败;')
+                }
+            }
+        }
+    })()
+    const a = new player('A 选手')
+    const b = new player('B 选手')
+    const c = new player('C 选手')
+    a.win()//A 选手挑战成功;
+    b.win()//B 选手挑战成功;
+    c.lose()//C 选手挑战失败;
+   /*
+   *
+   * 在这段代码中A，B，C之间没有直接发生关系，而是通过另外的playerMiddler对象建立连接
+   * */
+</script>
+</body>
+</html>

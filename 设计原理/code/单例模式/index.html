@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    *  单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点，实现的方法为先判断实例存在与否，如果存在就直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象
+    *
+    *  适用场景：单个对象。比如：弹窗，无论点击多少次，弹窗只应该被创建一次，实现起来也很简单，用一个变量缓存即可
+    *
+    *  实例单例模式
+    * */
+     const singleton =function(name){
+         this.name = name
+         this.instance =null
+     }
+     singleton.prototype.getName = function(){
+        console.log(this.name)
+     }
+     singleton.getInstance = function(name){
+         if(!this.instance){
+             this.instance = new singleton(name)
+         }
+         return this.instance
+     }
+     //test
+    const a =singleton.getInstance('a');
+    const b =singleton.getInstance('b');
+    a.getName()
+    b.getName()
+</script>
+</body>
+</html>

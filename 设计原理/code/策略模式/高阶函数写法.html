@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /*
+  *在函数是一等公民的JS中，策略模式的使用常常隐藏在高阶函数中，稍微变换上述demo的形式，如下发现我们平时已经在使用它了，恭喜我们又掌握了一种设计模式
+  *
+  * */
+  const S =function(salary){
+      return salary*4
+  }
+  const A = function(salary){
+      return salary*3
+  }
+  const B = function(salary){
+      return salary*2
+  }
+  const calculateBonus = function(func,salary){
+      return func(salary)
+  }
+  console.log(calculateBonus(A, 10000));//30000
+  console.log(calculateBonus(S, 6000));//24000
+</script>
+</body>
+</html>

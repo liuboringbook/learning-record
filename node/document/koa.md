@@ -374,5 +374,47 @@ const CONFIG ={
 }
 ```
 
-## mongodb
+# mongodb
+
+## nodejs操作mongodb数据库
+
+1. 安装mongodb
+
+```javascript
+npm install mongodb --save
+```
+
+2. 引入mongodb下面的MongodbClient
+
+```javascript
+var mongodbClient =require('mongodb').MongoClient
+```
+
+3. 定义数据连接的地址，以及配置数据库 koa数据库名称
+
+```javascript
+var url='mongodb://localhost:27017/'
+var dbName = 'koa'
+```
+
+4. node连接数据库
+
+```javascript
+MongoClient.connect(url,function(err,client){
+    const db = client.db(dbName); //数据库db对象
+})
+```
+
+5. 操作数据库
+
+```javascript
+db.userinsert
+Mongodb.connect(url,function(){
+    db.collection('user').insertOne({"name":"张三"},function(err,result){
+        db.close()//关闭连接
+    })
+})
+```
+
+
 

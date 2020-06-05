@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    *  代理模式的定义：为一个对象提供一个代用品，以便控制对他访问
+    *  简单的解释情景：小明追女生A
+    *  非代理模式 : 小明带着花送个女生A
+    *  代理模式：小明把花给女生A的好友B帮忙送花给女生A
+    *  代理模式的特点：
+    *  代理对象和本体对象具有一致的接口，对使用者友好
+    *  代理模式在JS中最常用的为虚拟代理和缓存代理
+    *
+    *  缓存代理实现乘积
+    * */
+    const  mult = function(l){
+        let a =1;
+        for(let i=0;l;l=arguments[i++]){
+          a = a*l
+        }
+        return a
+    }
+    const  proxyMult =(function(){
+        const cache ={}
+        return function(){
+            const tag = Array.prototype.join.call(arguments,',')
+            if(cache[tag]){
+                return cache[tag]
+            }
+            cache[tag] = mult.apply(this,arguments)
+            return cache[tag]
+        }
+    })()
+    console.log(proxyMult(1, 2, 3,4));
+</script>
+</body>
+</html>

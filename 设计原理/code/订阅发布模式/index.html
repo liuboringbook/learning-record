@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    *   在发布订阅模式中，并不属于同一个对象调用另一个对象的方法，而是一个对象订阅另一个对象的
+    *
+    *   出现场景：现有一个需求：当用户完成一个程序应用时，后台需要触发响应的订单，消息和审计模块
+    *   但是催着涉及越来越多的模块，我们的代码变得越来越臃肿，难以维护，那就是发布订阅模式可以节省灾难的时候
+    *
+    *    发布-订阅是一种消息传递范例，其中消息的发布不直接将消息发送特定的订阅者，而是通过消息通道进行广播，订阅者可以通过订阅获得他们想要的消息
+    * */
+
+
+    const EventEmit = function(){
+        this.events = {};
+        this.on = function(name,cb){
+            if(this.events [name]){
+                this.events [name] .push(cb);
+            } else {
+                this.events [name] = [cb];
+            }
+        };
+        this.trigger = function(name,...arg){
+            if(this.events [name]){
+                this.events [name] .forEach(eventListener => {
+                    eventListener(...arg);
+                });
+            }
+        };
+    };
+    var ev =new EventEmit()
+
+    class MessageCenter{
+        fetch(){
+            ev.on('click',()=>{
+                console.log('通知消息中心获取最新内容')
+            })
+        }
+    }
+    class Order{
+        update(){
+            ev.on('click',()=>{
+                console.log('更新订单消息')
+            })
+        }
+    }
+    class Checker{
+        alert(){
+            ev.on('click',()=>{
+                console.log('通知负责人审核')
+            })
+        }
+    }
+    var message =new MessageCenter()
+    var order  =new Order()
+    var checker =new Checker()
+    message.fetch()
+    order.update()
+    checker.alert()
+    ev.trigger('click')
+
+
+</script>
+</body>
+</html>
