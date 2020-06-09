@@ -20,20 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9477efbb-2d92-4cec-8a18-14dc206c3665" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/设计原理/code/中介者模式/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/代理模式/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/代理模式/虚拟代理.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/单例模式/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/单例模式/弹窗.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/策略模式/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/策略模式/非策略模式.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/策略模式/高阶函数写法.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/装饰器模式/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/装饰器模式/实例.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计原理/code/订阅发布模式/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/document/koa.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/document/koa.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/面试/设计模式.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript/document/JavaScript高级.md" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/document/JavaScript高级.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/设计原理/document/设计模式.md" beforeDir="false" afterPath="$PROJECT_DIR$/设计原理/document/设计模式.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +60,10 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/演示代码" />
     <property name="nodejs_interpreter_path" value="E:/node/node" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
@@ -136,7 +127,10 @@
       <workItem from="1590932168337" duration="598000" />
       <workItem from="1590970526312" duration="1199000" />
       <workItem from="1591152043233" duration="598000" />
-      <workItem from="1591228485823" duration="9577000" />
+      <workItem from="1591228485823" duration="10359000" />
+      <workItem from="1591365893602" duration="1252000" />
+      <workItem from="1591422518518" duration="1201000" />
+      <workItem from="1591533969918" duration="1253000" />
     </task>
     <servers />
   </component>
@@ -156,6 +150,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1127" y="376" key="FileChooserDialogImpl" timestamp="1591590916383">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1127" y="376" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1591590916383" />
     <state x="1039" y="244" key="run.anything.popup" timestamp="1591331663906">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

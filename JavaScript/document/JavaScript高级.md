@@ -767,5 +767,48 @@ fn(1,2,function(){
 })//3 我是最后调用的
 ```
 
+### 闭包
 
+#### 变量作用域
 
+变量根据作用域的不同分为两种:全局变量和局部变量
+
+1. 函数内部可以使用全局变量
+2. 函数外部不可以使用局部变量
+3. 当函数执行完毕，本作用域内的局部变量会销毁
+
+闭包：指有权访问另一个函数作用域中变量的函数，简单理解就是，一个作用域可以访问另一个函数内部的局部变量
+
+```javascript
+//闭包指有权访问另一个函数作用域中变量的函数
+
+//闭包：我们fun这个函数作用域访问了另一个函数fn里面的局部变量num
+
+function fn(){
+    var num =10;
+    function fun(){
+        console.log(num)
+    }
+    fun()
+}
+fn()
+```
+
+```javascript
+//我们fn外面的作用域可以访问fn内部的局部变量
+function fn(){
+    var num =10;
+    function fun(){
+        console.log(num)
+    }
+    return fun;
+}
+var f = fn()
+f();
+//类似于
+//var f = function fun(){
+//  console.log(num);
+// }
+```
+
+闭包的主要作用： 延伸了变量的作用范围
