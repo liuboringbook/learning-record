@@ -20,7 +20,7 @@ HTML DOM 定义了所有HTML元素的对象和属性，以及访问他们的方�
 
 HTML DOM将HTML文档视为树结构。这种结构被称为节点树:
 
-![1584984329581](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1584984329581.png)
+![1584984329581.png](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1584984329581.png?raw=true)
 
 通过HTML DOM树中的所有节点均可以通过JavaScript进行访问，所以HTML元素(节点)均可被修改，也可以创建或删除节点
 
@@ -35,7 +35,7 @@ HTML DOM将HTML文档视为树结构。这种结构被称为节点树:
 + 一个节点可拥有任意数量的子
 + 兄弟节点是拥有相同节点的节点
 
-![1584984653808](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1584984653808.png)
+![1584984653808](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1584984653808.png?raw=true)
 
 ## DOM方法
 
@@ -118,7 +118,7 @@ nodeValue属性规定节点的值
 
 nodeType属性返回节点的类型。nodeType是只读的
 
-![1584986017503](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1584986017503.png)
+![1584986017503](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1584986017503.png?raw=true)
 
 ## DOM访问
 

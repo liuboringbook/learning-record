@@ -21,7 +21,7 @@
 
 举个例子：将大象装进冰箱，面过过程
 
-![1590202281256](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590202281256.png)
+![1590202281256](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1590202281256.png?raw=true)
 
 面向过程，就是按照我们分析好了的步骤，按照步骤解决问题
 
@@ -61,7 +61,7 @@
 
 手机  抽象的(泛指)
 
-![1590202907622](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590202907622.png)
+![1590202907622](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1590202907622.png?raw=true)
 
 
 
@@ -91,7 +91,7 @@
 
 对象特指某一个，通过实例化一个具体的对象
 
-![1590203470763](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590203470763.png)
+![1590203470763](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1590203470763.png?raw=true)
 
 面向对象的思维特点：
 
@@ -369,7 +369,7 @@ console.log(ldh.sex);// 不能通过对象来访问
 
 构造函数方法很好用，但是存在浪费内存的问题
 
-![1590217956817](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590217956817.png)
+![1590217956817](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1590217956817.png?raw=true)
 
 #### 构造函数原型prototype
 
@@ -405,7 +405,7 @@ console.log(ldh.__proto__ === Star.prototype) //true
 
 `__proto__`对象原型的意义就在意为对象的查找机制提供一个方法，或者说一条路线，但是它是一个非标准的属性，因此实际开发中，不可以使用这个属性，它只是内部指向原型`prototype`
 
-![1590219219193](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590219219193.png)
+![1590219219193](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1590219219193.png?raw=true)
 
 #### constructor 构造函数
 
@@ -440,11 +440,11 @@ console.log(Star.prototype.constructor) //constructor属性被覆盖掉了
 
 #### 构造函数，实例对象，原型三者之间的关系
 
-![1590220102169](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590220102169.png)
+![1590220102169](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1590220102169.png?raw=true)
 
 #### 原型链
 
-![1590220318780](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590220318780.png)
+![1590220318780](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1590220318780.png?raw=true)
 
 #### JavaScript的成员的查找机制
 
@@ -572,7 +572,7 @@ f(1,2);
 
 函数的定义方式
 
-![1590227337308](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590227337308.png)
+![1590227337308](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1590227337308.png?raw=true)
 
 ### 函数的调用方式
 
@@ -627,7 +627,7 @@ setInterval(function(){
 
 ### this
 
-![1590227742433](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1590227742433.png)
+![1590227742433](https://github.com/liuboringbook/learning-record/blob/master/JavaScript/resource/1590227742433.png?raw=true)
 
 javascript为我们专门提供了一些函数方法来帮助我们更优雅的处理函数内部this的指向问题，常用的有`bind()`,
 
