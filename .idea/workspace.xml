@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9477efbb-2d92-4cec-8a18-14dc206c3665" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/document/JavaScript高级.md" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/document/JavaScript高级.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/设计原理/document/设计模式.md" beforeDir="false" afterPath="$PROJECT_DIR$/设计原理/document/设计模式.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/document/面试.md" beforeDir="false" afterPath="$PROJECT_DIR$/css/document/面试.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +61,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/演示代码" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="E:/node/node" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
@@ -131,6 +129,7 @@
       <workItem from="1591365893602" duration="1252000" />
       <workItem from="1591422518518" duration="1201000" />
       <workItem from="1591533969918" duration="1253000" />
+      <workItem from="1593067560657" duration="666000" />
     </task>
     <servers />
   </component>
