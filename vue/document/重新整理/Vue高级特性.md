@@ -257,7 +257,7 @@ Commodity组件通过$emit像父组件传递clickCommodity事件，并携带商�
 + 作用是为了让多个组件使用同一个挂载点，并动态切换
 + 常用在需要根据数据，动态渲染的场景。即组件类型不确定
 
-![1584947978816](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1584947978816.png)
+![1584947978816](https://github.com/liuboringbook/learning-record/blob/master/vue/resource/1584947978816.png?raw=true)
 
 #### 异步组件
 
