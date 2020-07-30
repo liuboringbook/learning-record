@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var deleteDuplicates = function(head){
+        let p = head;
+        while(p&& p.next){
+            if(p.val === p.next.val){
+                p.next = p.next.next;
+            }
+            p =p.next;
+        }
+        return head;
+    }
+</script>
+</body>
+</html>

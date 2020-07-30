@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const instanceOf = (A,B)=>{
+        let p =A;
+        while(p){
+            if(p === B.prototype){
+                return true
+            }
+            p = p.__proto__;
+        }
+        return false;
+    }
+</script>
+</body>
+</html>
