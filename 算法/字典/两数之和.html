@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var twoSum = function(nums,target){
+        const map = new Map();
+        for(let i=0;i<nums.length;i+=1){
+            const n= nums[i];
+            const n2 =target-n;
+            if(map.has(n2)){
+                return [map.get(n2),i]
+            }else{
+                map.set(n,i)
+            }
+        }
+    }
+</script>
+</body>
+</html>

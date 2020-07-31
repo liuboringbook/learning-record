@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const m = new Map();
+
+    //增
+    console.log(m.set('a', 'aa')); //Map(1)
+    m.set('b','bb');
+
+
+    //删
+    m.delete('b');
+    m.clear()  //清除所有的键
+
+    //改
+    m.set('a','111')
+
+    //查
+    m.get('a') //'aa'
+</script>
+</body>
+</html>
