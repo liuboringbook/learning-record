@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //已知有字符串foo='get-element-by-id',写成一个function将其转化为驼峰表示法"getElementById"
+   function upString(foo){
+       //根据某个字符进行切割
+       var arr =foo.split('-');
+       //获取每个元素中的第一个字符并转换成大写
+       console.log(arr[1].charAt(0).toUpperCase()+arr[1].substr(1,arr[1].length-1))
+
+       for(var i=1;i<arr.length;i++){
+           arr[i] =arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length-1)
+       }
+       //根据某个字符将数组转成字符串
+      return arr.join('');
+   }
+    upString('get-element-by-id')
+    console.log(upString('get-element-by-id'))
+</script>
+</body>
+</html>

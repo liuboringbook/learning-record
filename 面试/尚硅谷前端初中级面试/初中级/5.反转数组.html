@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   var arr =[1,2,3,4,5,6,7,8];
+   for(var i=0;i<arr.length/2;i++){
+       //借助第三方变量 交换两个变量的值
+       var temp = arr[i];
+       arr[i] =arr[arr.length-1-i];
+       arr[arr.length-1-i] =temp;
+   }
+   console.log(arr);
+</script>
+</body>
+</html>

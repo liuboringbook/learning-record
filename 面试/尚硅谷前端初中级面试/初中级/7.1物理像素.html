@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1物理像素实现方案</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        #box:before{
+            content:'';
+            position: absolute;
+            left:0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background: #000;
+        }
+        @media screen and(-webkit-min-device-pixel-ratio: 2){
+            #box:before {
+                transform: scaleY(0.5);
+            }
+        }
+        @media screen and(-webkit-min-device-pixel-ratio: 3){
+            #box:before{
+                transform: scaleY(0.33333);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    window.onload =function(){
+        //像素比 = 物理像素/css像素
+       var dpr = window.devicePixelRatio;
+       var scale =1/dpr;
+       console.log(scale)
+    }
+</script>
+</body>
+</html>

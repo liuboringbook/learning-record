@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * 什么是闭包？
+    * 1. 密闭的容器，类似于set，map容器，存放数据的
+    * 2.闭包是一个对象，存放数据的格式：key：value
+    * 形成的条件：
+    * 1.函数嵌套
+    * 2.内部函数引用外部函数的局部变量
+    *
+    *
+    *
+    * */
+    function fun(){
+        var count = 1;
+        function fun2(){
+            console.log(count)
+        }
+    }
+    fun();
+
+</script>
+</body>
+</html>
