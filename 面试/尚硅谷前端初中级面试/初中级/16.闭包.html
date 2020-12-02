@@ -14,16 +14,41 @@
     * 1.函数嵌套
     * 2.内部函数引用外部函数的局部变量
     *
-    *
+    * 闭包的优点：
+    * 延长外部函数局部变量的生命周期
+    * 闭包的缺点：
+    * 容易造成内存泄露
+    * 注意点：
+    * 1.合理的使用闭包
+    * 2.用完闭包要及时清除(销毁)
     *
     * */
+    // function fun(){
+    //     var count = 1;
+    //     function fun2(){
+    //         console.log(count)
+    //     }
+    //     fun2()
+    // }
+    // fun();
+  //闭包的应用场景
     function fun(){
-        var count = 1;
-        function fun2(){
+        var count =1;
+        return function(){
+         count++
             console.log(count)
         }
     }
-    fun();
+    var fun2 =fun();
+    fun2();//2
+    fun2();//3
+
+
+
+
+
+
+
 
 </script>
 </body>
