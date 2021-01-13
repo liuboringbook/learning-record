@@ -1,4 +1,4 @@
-1. 介绍一下标准的css的盒子模型？低版本IE的盒子模型有什么不同
+## 1. 介绍一下标准的css的盒子模型？低版本IE的盒子模型有什么不同
 
 标准模型由四部分组成：
 - 内容区域: 可以放置元素的区域如文本,图像等，一般设置宽高指的是这个内容的宽高
@@ -9,7 +9,7 @@
 模型区分：
 标准表型指的是设置box-sizing为content-box的盒子模型，一般width,height指的是content的宽高。IE盒模型指的是box-sizing为border-box的盒子。宽高的计算是content+padding+border;
 
-2. CSS选择符有哪些？那些属于可以继承？
+## 2. CSS选择符有哪些？那些属于可以继承？
 
 - id选择器(#myid)
 - 类选择器(.myclassName)
@@ -23,7 +23,8 @@
 可继承的样式： font-size font-family color
 不可继承的样式： border padding margin height width
 
-3. css优先级如何计算?
+## 3. css优先级如何计算?
+
 - 优先级就近原则，同权重情况下样式定义最近这位准
 - 载入样式以最后载入的定位为准
 
@@ -33,7 +34,7 @@
 + !important >id >class >tag
 + !important 比内联优先级高
 
-4. display有哪些值？说明他们的作用
+## 4. display有哪些值？说明他们的作用
 
 - block  块类型。默认宽度为父元素宽度，可设置宽高，换行显示
 - none  元素不显示，并从文档流中移除
@@ -43,7 +44,7 @@
 - table  此元素会作为会计表格来显示
 - inherit  规定应该从父元素继承display属性的值
 
-5. position的值releave和absolute定位远点是？
+## 5. position的值releave和absolute定位远点是？
 
 - absolute 生成绝对定位元素，相对与值部位static的第一个父元素进行定位
 - fixed 生成绝对的元素，相对于浏览器窗口进行定位
@@ -51,7 +52,7 @@
 - static 默认值。没有定位，元素出现在正常出现的流中
 - inherit 规定从父元素继承position属性的值
 
-6. css有哪些特性?
+## 6. css有哪些特性?
 
 - 过渡
 
@@ -140,11 +141,11 @@ rgba(rgb颜色值，a为透明度)
 + border-box 边框和内边距包含在元素的宽高之内
 + content-box 边框和内边距不包含在元素的宽高之内
 
-7. 请解释一下css3的flex(弹性盒布局模型)以及使用场景
+## 7. 请解释一下css3的flex(弹性盒布局模型)以及使用场景
 
 一个用于页面布局的全新css3功能，flexbox可以把列表放在同一个方向(从上到下排列，从左到右)，并且列表能延伸到占用可用的空间，较为复杂的布局还可以嵌套一个伸缩容器(flex container)来实现。采用flex布局的元素，成为flex容器。常规布局是基于块和内联流方向，而flex布局是基于flex布局flex-flow流可以很方便的用来做居中，能对不同屏幕大小自适应，在布局上有了比以前更加灵活的空间
 
-8. 经常遇到的浏览器的兼容性问题有哪些，原因，解决方法是什么
+## 8. 经常遇到的浏览器的兼容性问题有哪些，原因，解决方法是什么
 
 - png24位的图片在Ie6浏览器上出现背景。解决方案是做成png8
 - 浏览器默认的margin和padding不同。解决方案是假一个全局的*{margin:0;padding:0}来统一
@@ -188,8 +189,7 @@ rgba(rgb颜色值，a为透明度)
 
 - ios滚动卡顿。解决方案：在滚动的容器上加上`webkit-over-flow-scrolling:touch;`
 
-
-9. 请解释一下为什么需要清浮动？清浮动的方式
+## 9. 请解释一下为什么需要清浮动？清浮动的方式
 
 清浮动是为了清除使用浮动元素产生的影响。浮动的元素，高度会塌陷，而高度的塌陷使页面后面的布局不能正常显示
 
@@ -209,7 +209,7 @@ rgba(rgb颜色值，a为透明度)
     visibility:hidden;
 }
 ```
-10. margin和padding分别适合什么场景使用？
+## 10. margin和padding分别适合什么场景使用？
 
 margin是用来隔开元素与元素的间距；padding是用来隔开元素与内容的间隔。margin是用来布局分开元素，使元素与元素互不相干；padding用于元素与内容之间的间隔，让内容与元素之间有一段间距
 
@@ -410,5 +410,127 @@ Flexbox的实现文本的水平垂直居中同样很简单
 ```
 
 最好不要使用绝对定位，因为他对整体的布局影响相当的大
+
+## 11. 伪类是什么？有哪些？会有哪些兼容性问题？如何处理？伪类和伪元素的区别
+
+伪类用于向某些选择器添加特殊的效果。用于通过选择器找到哪些不存在与DOM树中的信息以及不能被常规CSS选择器获取到的信息
+
+伪类由一个冒号：开头，冒号后面是伪类的名称和包含在圆括号中的可选参数
+
+```css
+li:last-child{
+    font-size:12px;  // 结构选择器
+}
+a:hover{
+    font-weight:bold //动态选择器
+}
+input:disabled{
+    background-color:#eee; //基于状态的选择器
+}
+```
+
+在高版本浏览器中基本不会出现兼容性问题
+
+伪元素用于向某些选择器设置特殊效果
+
+伪元素有两个冒号::开头，然后是伪元素的名称
+
+```css
+ul:after{
+    display:block;
+    content:'red';
+    color:red;
+}
+```
+
+## 12. css预处理器知道吗？用过哪些？有什么优劣？
+
+SASS，通过服务端处理，功能强大。解析效率高。
+
+LESS通海哦客户端处理，使用简单，功能比SASS简单，解析效率低于SASS
+
+主要用于解决CSS无法嵌套书写，导致模块化开发中需要书写大量重复选择器
+
+没有变量和合理的样式复写机制，不便于模块化开发和维护
+
+## 13. BFC块级上下文
+
+BFC 是一个独立的渲染区域，它规定了容器里面的子元素不会影响到外面元素，外面的元素也不会影响到子元素
+
+BFC的布局规则
+
++ 内部的BOX会垂直方向一个接一个地放置
++ box垂直方面的距离由margin决定。属于同一个BFC的两个相邻的BOX的margin会发生重叠
++ 每个盒子的margin box的左边与包含快border box的左边相接触。即使存在浮动也是如此
++ BFC的区域不会与float box重叠
++ BFC就是页面上一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也是如此
++ 计算BFC的高度时，浮动元素也参与计算
+
+如何创建BFC
+
++  float的值不是none
++ postion的值不是static或者relative
++ display的值是inline-block，table-cell ，flex
++ overflow的值不是visible
+
+BFC的作用
+
+1. 利用BFC避免margin重叠
+2. 清除浮动（当不给父节带你设置高度，子节点设置浮动的时候，会发生高度塌陷，这个时候我们就需要清除浮动）
+
+## 14. 响应式布局原理
+
+响应式布局开发一套界面，通过检测视口分辨率，针对不同客户端在客户端做代码处理，来展示不同的布局和内容；自适应需要开发多套界面，通过检测视口分辨率，来判断当前访问的是pc端，平板，手机从而请求服务层，返回不同的页面
+
+响应式布局的实现方案：
+
+1. 媒体查询
+2. 百分比布局
+3. rem布局
+
+![1607163271759](C:\Users\刘如刚\AppData\Roaming\Typora\typora-user-images\1607163271759.png)
+
+
+
+## 15. 1px边框问题
+
+高清屏中1px边框会变粗
+
+解决方案
+
+1. 通过边框图片
+
+```css
+border：1px solid transparent
+border-image：url('./../image/96.jpg') 2 repeat;
+```
+
+2. 使用伪类元素
+
+```css
+.setOnePex{
+    position:relative;
+    &::after{
+        postion:absolute;
+        content:'';
+        background-color:#e5e5e5;
+        display:block;
+        width:100%;
+        height:1px;
+        transform:scale(1,0.5)
+        top:0;
+        left:0;
+    }
+}
+```
+
+将伪类元素设置绝对定位，并且和父元素的左上角对齐，将width设置100%，height设置为1px,然后进行Y方向缩小0.5倍
+
+优点: 全机型兼容实现了真正的1px，而且可以圆角
+
+缺点：暂停了after伪类元素，可能影响清除浮动
+
+
+
 
 

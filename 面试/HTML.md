@@ -1,6 +1,6 @@
-## 1. Doctype作用？ 标准模式与兼容模式的=有什么区别
+## 1. Doctype作用？ 标准模式与兼容模式什么区别
 
-- 声明位于HTML文档的第一行，处于标签之前。用来告知浏览器的解析器用什么文档标准解析这个文档。Doctype 不存在或歌手不正确会导致文档以兼容模式呈现。
+- 声明位于HTML文档的第一行，处于标签之前。用来告知浏览器的解析器用什么文档标准解析这个文档。Doctype 不存在格式不正确会导致文档以兼容模式呈现。
 - 标准模式：排版和js运行方式都是以该浏览器支持的最高标准运行
 - 兼容模式：页面以宽松的向后兼容的方式显示，模拟老式浏览器的行为以防止站点无法运行
 - 例子：width不同在严格模式中，width是内容宽度，但是在兼容模式中，width是元素的实际宽度(怪异盒模型是margin之外是width的范围)
@@ -11,11 +11,11 @@
 
 常见的块级元素： div,ul,ol,li,p
 
-常见的空元素: `<bbr>`,`<hr>`,`<script>`
+常见的空元素: `<br>`,`<hr>`,`<script>`
 
 空元素的定义： html元素的内容就是其两个标签之间的content，所以，标签之间没有内容的就是空元素
 
-## 3. 页面导入样式时，使用link和mport有什么区别？
+## 3. 页面导入样式时，使用link和import有什么区别？
 
 写法上：
 
@@ -60,7 +60,7 @@ js引擎：解析和执行JavaScript来实现网页的动态效果
 
 - iframe会阻塞主页面的onload事件
 - 搜索引擎的检索程序无法解读这种页面，不利于SEO
-- iframe和主页面共享连接池，而浏览器对相同域逇连接有限制，所以会影响页面的并行加载
+- iframe和主页面共享连接池，而浏览器对相同域也连接有限制，所以会影响页面的并行加载
 - 使用iframe之前需要考虑这三个缺点。如果需要使用iframe，最好是通过JavaScript
 - 动态给iframe添加src属性，这样可以绕开以上两个问题
 
@@ -95,3 +95,24 @@ js引擎：解析和执行JavaScript来实现网页的动态效果
 也可以使用html兼容性文件
 
 `<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>`
+
+##  10. 前端需要注意哪些SEO
+
+SEO三剑客：TDK 。`<title>`标签，`<meta name="description">`标签和`<meta name="keyword">`标签。分别代表当前页面的标题，内容摘要和关键词
+
+## 11. input与textarea的区别
+
+`<input>`是单行文本框，不会换行。通过size属性指定显示字符的长度。value属性指定初始值，maxlength属性指定文本框可以输入的最长长度。通过width和height设置宽高，但是不会增加行数
+
+`<textarea>`是多行文本输入框。文本区中可以容纳无限数量的文本，无value属性，其中的文本的默认字体时等高字体，可以通过clos和rows属性规定textarea的尺寸，也可以使用css的height和width属性
+
+## 12. 用div模拟textarea
+
+作为多行文本域功能来讲，textarea满足了我们大部分的需求。然而，textarea有一个不足就是不能像普通点的div标签一样高度随着内容自适应。有自己的滚动条
+
+因此在block元素上加个contenteditable=“true”
+
+```html
+<div contenteditable="true"></div>
+```
+
